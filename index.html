@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <button class="play">Play Game</button>
+    <!--<button class="create">Create Level</button>-->
+
+    <div class="choose-map">
+        <button value="map1" onclick="setGame(map1);">Map 1</button>
+        <button value="map2" onclick="setGame(map2);">Map 2</button>
+    </div>
+
+    <button class="menu">Menu</button>
+
+
+    <div class="game">
+        <h1>Use arrows to move your point</h1>
+        <div class="app-box">
+
+        </div>
+        <div class="location-prev"></div>
+        <div class="location-curr"></div>
+    </div>
+
+
+    <!--
+    <div class="create-map">
+        <h1>Choose type of elemtent and click on the map element</h1>
+
+    <div class="demensions">
+        <span>X:</span><input type="number" class="x-value">
+        <span>Y:</span><input type="number" class="y-value">
+        <button class="create-button">Create</button>
+    </div>
+    <div class="paint-board">
+        <div class="el player"></div>
+        <div class="el wall"></div>
+        <div class="el ground"></div>
+    </div>
+    <div class="map-box">
+
+        <button class="save">Save</button>
+    </div>
+
+    </div>
+    -->
+
+
+</body>
+</html>
+<script src="main.js"></script>
+
+<script src="page-logic.js"></script>
+<script src="create-map.js"></script>

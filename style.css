@@ -1,0 +1,57 @@
+﻿* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+
+.menu {
+    display: none;
+}
+
+.game{
+    display: none;
+}
+
+.choose-map {
+    display: none;
+}
+
+.create-map {
+    display: none;
+}
+
+.map-box {
+    margin: 30px;
+}
+
+.demensions {
+    margin: 30px;
+}
+
+.el {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0.5px 2px;
+    background-color: gray;
+}
+
+.row {
+    display: block;
+}
+
+.player {
+    background-color: red;
+}
+
+.wall {
+    background-color: mediumpurple;
+}
+
+.ground {
+    background-color: black;
+}
