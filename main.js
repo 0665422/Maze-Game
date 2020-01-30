@@ -5,31 +5,15 @@
 const map1 = {
     dimensions: [21, 21],
     startPoint: [1, 10],
-    walls: [[8, 6], [4, 3], [3, 2], [2, 3], [1, 3]],
-    getDimensions: function () {
-        return this.dimensions;
-    },
-    getStartPoint: function () {
-        return this.startPoint;
-    },
-    getWalls: function () {
-        return this.walls;
-    },
+    finishPoint: [[19, 10]],
+    walls: [[8, 6], [4, 3], [3, 2], [2, 3], [1, 3]]
 }
 
 const map2 = {
     dimensions: [31, 11],
     startPoint: [1, 7],
-    walls: [[8, 6], [4, 3], [3, 2]],
-    getDimensions: function () {
-        return this.dimensions;
-    },
-    getStartPoint: function () {
-        return this.startPoint;
-    },
-    getWalls: function () {
-        return this.walls;
-    },
+    finishPoint: [[19, 7]],
+    walls: [[8, 6], [4, 3], [3, 2]]
 }
 
 //RUN
@@ -43,35 +27,39 @@ var walls;
 var playerLocation;
 var board;
 
+var gameWon = false;
+
 $(document).keydown(function (event) {
     showPlayerLocationPrev();
-    switch (event.which) {
-        case 37: // left
-            if (canGo(playerLocation[0] - 1, playerLocation[1], board)) {
-                playerLocation[0]--;
-            }
-            break;
+    if (!gameWon) {
+        switch (event.which) {
+            case 37: // left
+                if (canGo(playerLocation[0] - 1, playerLocation[1], board)) {
+                    playerLocation[0]--;
+                }
+                break;
 
-        case 38: // up
-            if (canGo(playerLocation[0], playerLocation[1] + 1, board)) {
-                playerLocation[1]++;
-            }
-            break;
+            case 38: // up
+                if (canGo(playerLocation[0], playerLocation[1] + 1, board)) {
+                    playerLocation[1]++;
+                }
+                break;
 
-        case 39: // right
-            if (canGo(playerLocation[0] + 1, playerLocation[1], board)) {
-                playerLocation[0]++;
-            }
-            break;
+            case 39: // right
+                if (canGo(playerLocation[0] + 1, playerLocation[1], board)) {
+                    playerLocation[0]++;
+                }
+                break;
 
-        case 40: // down
-            if (canGo(playerLocation[0], playerLocation[1] - 1, board)) {
-                playerLocation[1]--;
-            }
-            break;
+            case 40: // down
+                if (canGo(playerLocation[0], playerLocation[1] - 1, board)) {
+                    playerLocation[1]--;
+                }
+                break;
 
-        default:
-            return; // exit this handler for other keys
+            default:
+                return; // exit this handler for other keys
+        }
     }
     event.preventDefault(); // prevent the default action (scroll / move caret)
 
@@ -79,6 +67,12 @@ $(document).keydown(function (event) {
 
     defineBoardElements(x, y, board);
     applyCss(x, y, board);
+
+    if (isWin()) {
+        gameWon = true;
+        $(".win").css("display", "block");
+    }
+
 });
 
 //FUNCTIONS
@@ -104,6 +98,10 @@ function defineBoardElements(x, y, target) {
 
     for (var t = 0; t < walls.length; t++) {
         target[walls[t][0]][walls[t][1]] = "wall";
+    }
+
+    for (var t = 0; t < finish.length; t++) {
+        target[finish[t][0]][finish[t][1]] = "finish";
     }
 
     target[playerLocation[0]][playerLocation[1]] = "player";
@@ -170,6 +168,9 @@ function createBorderWalls(X, Y, target) {
 }
 
 function setGame(map) {
+    gameWon = false;
+    $(".win").css("display", "none");
+
     let mapCopy = JSON.parse(JSON.stringify(map))
 
     x = mapCopy.dimensions[0];
@@ -177,6 +178,7 @@ function setGame(map) {
 
     playerStart = mapCopy.startPoint;
     walls = mapCopy.walls;
+    finish = mapCopy.finishPoint;
 
     createBorderWalls(x, y, walls);
 
@@ -185,4 +187,14 @@ function setGame(map) {
 
     defineBoardElements(x, y, board);
     createHtmlLayout(x, y);
+}
+
+function isWin() {
+    for (var i = 0; i < finish.length; i++) {
+        if (finish[i][0] == playerLocation[0] && finish[i][1] == playerLocation[1]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

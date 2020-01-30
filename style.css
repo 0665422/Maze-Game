@@ -24,6 +24,10 @@ body {
     display: none;
 }
 
+.win {
+    display: none;
+}
+
 .map-box {
     margin: 30px;
 }
@@ -54,4 +58,8 @@ body {
 
 .ground {
     background-color: black;
+}
+
+.finish {
+    background-color: deepskyblue;
 }
