@@ -16,6 +16,13 @@ const map2 = {
     walls: [[8, 6], [4, 3], [3, 2]]
 }
 
+const map3 = {
+    dimensions: [10, 10],
+    startPoint: [5, 5],
+    finishPoint: [[8, 8]],
+    walls: [[8, 6], [4, 3], [3, 2]]
+}
+
 //RUN
 
 var x;
@@ -30,27 +37,29 @@ var board;
 var gameWon = false;
 
 $(document).keydown(function (event) {
-    showPlayerLocationPrev();
+    //showPlayerLocationPrev();
+    var haveMatched = true;
     if (!gameWon) {
         switch (event.which) {
+            case 65:
             case 37: // left
                 if (canGo(playerLocation[0] - 1, playerLocation[1], board)) {
                     playerLocation[0]--;
                 }
                 break;
-
+            case 87:
             case 38: // up
                 if (canGo(playerLocation[0], playerLocation[1] + 1, board)) {
                     playerLocation[1]++;
                 }
                 break;
-
+            case 68:
             case 39: // right
                 if (canGo(playerLocation[0] + 1, playerLocation[1], board)) {
                     playerLocation[0]++;
                 }
                 break;
-
+            case 83:
             case 40: // down
                 if (canGo(playerLocation[0], playerLocation[1] - 1, board)) {
                     playerLocation[1]--;
@@ -58,20 +67,24 @@ $(document).keydown(function (event) {
                 break;
 
             default:
+                haveMatched = false;
                 return; // exit this handler for other keys
         }
     }
-    event.preventDefault(); // prevent the default action (scroll / move caret)
+    if (haveMatched) {
+        event.preventDefault(); // prevent the default action (scroll / move caret)
 
-    showPlayerLocationCurr();
+        //showPlayerLocationCurr();
 
-    defineBoardElements(x, y, board);
-    applyCss(x, y, board);
+        defineBoardElements(x, y, board);
+        applyCss(x, y, board);
 
-    if (isWin()) {
+        if (isWin()) {
         gameWon = true;
-        $(".win").css("display", "block");
+            $(".win").css("display", "block");
+        }
     }
+    
 
 });
 
@@ -171,7 +184,7 @@ function setGame(map) {
     gameWon = false;
     $(".win").css("display", "none");
 
-    let mapCopy = JSON.parse(JSON.stringify(map))
+    let mapCopy = JSON.parse(JSON.stringify(map));
 
     x = mapCopy.dimensions[0];
     y = mapCopy.dimensions[1];

@@ -7,6 +7,81 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.play > h1 {
+    margin: 8vh 0;
+    font-size: 48px;
+    line-height: 110px;
+}
+
+.play > h1 > span {
+    font-size: 82px;
+    text-transform: uppercase;
+
+
+}
+
+.play > button {
+    font-size: 30pt;
+    font-family: 'Press Start 2p';
+
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    padding: 20px;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: dimgray;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray;
+    cursor: pointer;
+}
+
+.play > button:active {
+    box-shadow: none;
+    position: relative;
+    top: .2em;
+}
+
+.choose-map h1 {
+    margin: 8vh;
+    font-size: 56px;
+}
+
+
+.choose-map h2 {
+    font-size: 32px;
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.choose-map > div {
+    display: inline-block;
+    width: 300px;
+    margin: 2%;
+}
+
+.choose-map > div > button {
+    border-radius: 10px;
+    box-shadow: .4em .4em gray;
+    cursor: pointer;
+}
+
+.choose-map > div > button:active {
+    box-shadow: none;
+    position: relative;
+    top: .4em;
+    left: .4em;
+}
+
+.choose-map > div > img {
+    display: block;
+}
 
 .menu {
     display: none;
@@ -40,12 +115,13 @@ body {
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin: 0.5px 2px;
+    margin: 0px 2px;
     background-color: gray;
 }
 
 .row {
     display: block;
+    margin: 0;
 }
 
 .player {

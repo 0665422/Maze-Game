@@ -5,22 +5,46 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <button class="play">Play Game</button>
-    <!--<button class="create">Create Level</button>-->
-
-    <div class="choose-map">
-        <button value="map1" onclick="setGame(map1);">Map 1</button>
-        <button value="map2" onclick="setGame(map2);">Map 2</button>
+    <div class="play">
+        <h1>Welcome to<br /><span>Maze Game</span></h1>
+        <button>Play Game</button>
     </div>
+
+    <!--<button class="create">Create Level</button>-->
 
     <button class="menu">Menu</button>
 
+    <div class="choose-map">
+        <h1>Choose the map</h1>
+        <div>
+            <button value="map1" onclick="setGame(map1);">
+                <h2>Map 1</h2>
+                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+            </button>
+        </div>
+        <div>
+            <button value="map1" onclick="setGame(map2);">
+                <h2>Map 2</h2>
+                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+            </button>
+        </div>
+        <div>
+            <button value="map1" onclick="setGame(map3);">
+                <h2>Map 3</h2>
+                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+            </button>
+        </div>
+        
+        
+        
+    </div>
 
     <div class="game">
-        <h1>Use arrows to move your point</h1>
+        <h1>Use arrows or WASD to move your point</h1>
         <div class="win">You Won!</div>
         <div class="app-box">
 

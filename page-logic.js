@@ -1,10 +1,10 @@
 // JavaScript source code
-$(".play").click(function () {
+$(".play button").click(function () {
     //$(".game").css("display", "block");
     $(".create-map").css("display", "none");
     //$(".menu").css("display", "inline-block");
     $(".create").css("display", "none");
-    $(".choose-map").css("display", "inline-block");
+    $(".choose-map").css("display", "block");
     $(".play").css("display", "none");
 });
 
