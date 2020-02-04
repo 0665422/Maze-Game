@@ -48,6 +48,30 @@ h1 {
     top: .2em;
 }
 
+.menu {
+    font-size: 20pt;
+    font-family: 'Press Start 2p';
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px;
+    margin: 20px 0 30px;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: dimgray;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray;
+    cursor: pointer;
+}
+
+.menu:active {
+    box-shadow: none;
+    position: relative;
+    top: .2em;
+}
+
 .choose-map h1 {
     margin: 8vh;
     font-size: 56px;
@@ -83,24 +107,16 @@ h1 {
     display: block;
 }
 
-.menu {
-    display: none;
-}
-
-.game{
-    display: none;
-}
-
-.choose-map {
-    display: none;
-}
-
-.create-map {
-    display: none;
-}
-
+.menu,
+.game,
+.choose-map,
+.create-map,
 .win {
     display: none;
+}
+
+.game > h1 {
+    margin: 10px 0 20px;
 }
 
 .map-box {
