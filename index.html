@@ -23,34 +23,36 @@
         <div>
             <button value="map1" onclick="setGame(map1);">
                 <h2>Map 1</h2>
-                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+                <img src="assets/map1.png" />
             </button>
         </div>
         <div>
-            <button value="map1" onclick="setGame(map2);">
+            <button value="map2" onclick="setGame(map2);">
                 <h2>Map 2</h2>
-                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+                <img src="assets/map2.png" />
             </button>
         </div>
-        <div>
-            <button value="map1" onclick="setGame(map3);">
+        <div class="big-map">
+            <button value="map3" onclick="setGame(map3);">
                 <h2>Map 3</h2>
-                <img src="MazeGame/images/Square150x150Logo.scale-200.png" />
+                <img src="assets/map3-l.png" />
             </button>
         </div>
-        
-        
-        
     </div>
 
     <div class="game">
         <h1>Use arrows or WASD to move your point</h1>
-        <div class="win">You Won!</div>
+        <div class="win">
+            <h3>Congratulations!</h3>
+            <img src="assets/exit-man.png" />
+            <p>You found a way out</p>
+        </div>
         <div class="app-box">
 
         </div>
         <div class="location-prev"></div>
         <div class="location-curr"></div>
+        <div class="chosen-points"></div>
     </div>
 
 
@@ -82,4 +84,5 @@
 <script src="main.js"></script>
 
 <script src="page-logic.js"></script>
+<script src="active-styling.js"></script>
 <script src="create-map.js"></script>

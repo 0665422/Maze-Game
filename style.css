@@ -7,7 +7,12 @@ body {
     text-align: center;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -72,6 +77,10 @@ h1 {
     top: .2em;
 }
 
+.choose-map {
+    margin-bottom: 100px;
+}
+
 .choose-map h1 {
     margin: 8vh;
     font-size: 56px;
@@ -86,8 +95,8 @@ h1 {
 
 .choose-map > div {
     display: inline-block;
-    width: 300px;
-    margin: 2%;
+    margin-left: 4%;
+    margin-bottom: 80px;
 }
 
 .choose-map > div > button {
@@ -103,8 +112,9 @@ h1 {
     left: .4em;
 }
 
-.choose-map > div > img {
+.choose-map > div > button > img {
     display: block;
+    height: 300px;
 }
 
 .menu,
@@ -113,6 +123,26 @@ h1 {
 .create-map,
 .win {
     display: none;
+}
+
+.win {
+    position: absolute;
+    padding: 30px;
+    background-color: crimson;
+    color: white;
+    border-radius: 20px;
+    font-size: 30px;
+    text-align: center;
+    -webkit-box-shadow: 6px 5px 14px 5px rgba(0,0,0,0.52);
+    box-shadow: 6px 5px 14px 5px rgba(0,0,0,0.52);
+}
+
+.win h3 {
+    margin: 10px 10px;
+}
+
+.win img {
+    width: 0;
 }
 
 .game > h1 {
@@ -145,11 +175,11 @@ h1 {
 }
 
 .wall {
-    background-color: mediumpurple;
+    background-color: darkslateblue;
 }
 
 .ground {
-    background-color: black;
+    background-color: lightpink;
 }
 
 .finish {
