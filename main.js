@@ -69,6 +69,7 @@ $(document).keydown(function (event) {
 
 //FUNCTIONS
 
+/*
 function createVirtualBoard(x, y) {
     var Grid = [];
     for (var i = 0; i < x; i++) {
@@ -80,6 +81,7 @@ function createVirtualBoard(x, y) {
     //console.log(Grid);
     return Grid;
 }
+*/
 
 
 function showPlayerLocationPrev() {
@@ -93,7 +95,7 @@ function showPlayerLocationCurr() {
 function toHtmlPoint(x, y) {
     return "#y" + y + " #x" + x
 }
-
+/*
 function createHtmlLayout(X, Y) {
     //creating HTML layout
     $(".app-box").empty();
@@ -106,6 +108,7 @@ function createHtmlLayout(X, Y) {
     //applying CSS properties
     applyCss(X, Y, board);
 };
+*/
 
 function createBorderWalls(X, Y, target) {
     //top & bottom borders
@@ -130,14 +133,26 @@ function setGame(map) {
     x = mapCopy.dimensions[0];
     y = mapCopy.dimensions[1];
 
+
     playerStart = mapCopy.startPoint;
     walls = mapCopy.walls;
     finish = mapCopy.finishPoint;
 
-    createBorderWalls(x, y, walls);
+    //create borders
+    //top & bottom borders
+    for (var i = 0; i < x; i++) {
+        walls.push([i, 0]);
+        walls.push([i, y - 1]);
+    }
+    //left & right borders
+    for (var i = 0; i < y; i++) {
+        walls.push([0, i]);
+        walls.push([x - 1, i]);
+    }
 
     playerLocation = playerStart;
 
+    //creating empty virtual map
     board = [];
     for (var i = 0; i < x; i++) {
         board.push([]);
@@ -145,10 +160,20 @@ function setGame(map) {
             board[i].push([0]);
         };
     };
-    board = createVirtualBoard(x, y);
 
+    //creating HTML layout
+    $(".app-box").empty();
+    for (var h = y - 1; h >= 0; h--) {
+        $(".app-box").append("<div class='row' id='y" + h + "'></div>");
+        for (var w = 0; w < x; w++) {
+            $(".app-box #y" + h).append("<div class='el' id='x" + w + "'></div>");
+        };
+    };
+
+    //define virtual map
     defineBoardElements(x, y, board);
-    createHtmlLayout(x, y);
+    //applying CSS properties
+    applyCss(x, y, board);
 }
 
 
